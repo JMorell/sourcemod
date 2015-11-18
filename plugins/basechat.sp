@@ -406,7 +406,15 @@ void SendPanelToAll(int from, char[] message)
 	DrawPanelText(mSayPanel, message);
 	DrawPanelItem(mSayPanel, "", ITEMDRAW_SPACER);
 
-	SetPanelCurrentKey(mSayPanel, 10);
+	if (g_GameEngine == Engine_CSGO)
+	{
+		SetPanelCurrentKey(mSayPanel, 1);
+	}
+	else
+	{
+		SetPanelCurrentKey(mSayPanel, 10);
+	}
+	
 	DrawPanelItem(mSayPanel, "Exit", ITEMDRAW_CONTROL);
 
 	for(new i = 1; i <= MaxClients; i++)
